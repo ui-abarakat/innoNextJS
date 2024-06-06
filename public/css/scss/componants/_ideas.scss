@@ -1,0 +1,398 @@
+.inno-ideas-wp {
+  padding-block: 8rem 4rem;
+  background-color: $lightColorDark;
+  min-height: 100vh;
+  &.inno-no-bg {
+    background-color: transparent;
+    padding-block: 0;
+  }
+
+  .inno-idea-i {
+    @include flexBox(flex, column, flex-start, space-between);
+    @include width(100%, 100%, 100%);
+    @include border-radius(0.5rem);
+    @include box-shadow(0, 0, 2rem, 0, rgba($blackColor, 0.25));
+    position: relative;
+    aspect-ratio: 0.875;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-block-end: 1.5rem;
+    background-size: cover;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, $gradientListThree);
+      @include border-radius(0.5rem);
+      z-index: 0;
+      opacity: 0.25;
+      @include transition(all, 0.3s, ease-in-out);
+    }
+    > * {
+      z-index: 1;
+    }
+    .inno-btn-float-like {
+      &.inno-liked {
+        background-color: $successColor;
+        bottom: 0;
+      }
+    }
+    .inno-idea-user {
+      @include flexBox(flex, row, flex-start, flex-start);
+      gap: 1rem;
+      .inno-idea-user-img {
+        @include border-radius(50%);
+        width: 2.75rem;
+        aspect-ratio: 1;
+        background-color: $whiteColor;
+        overflow: hidden;
+        @include flexBox(flex, row, center, center);
+        img {
+          @include border-radius(50%);
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .inno-idea-user-name {
+        opacity: 0;
+        @include transition(all, 0.3s, ease-in-out);
+        margin-block-start: 1rem;
+        h5 {
+          font-size: 1.25rem;
+          font-weight: 500;
+          color: $whiteColor;
+          margin-block-end: 0rem;
+          line-height: 1;
+        }
+        span {
+          font-size: 0.75rem;
+          color: $whiteColor;
+          line-height: 1;
+          font-weight: 300;
+        }
+      }
+    }
+    .inno-idea-c {
+      .inno-idea-category {
+        @include flexBox(flex, row, center, flex-start);
+        gap: 0.5rem;
+        span {
+          font-size: 0.875rem;
+          color: $whiteColor;
+          font-weight: 500;
+        }
+        i {
+          font-size: 1.5rem;
+          color: $secondaryColor;
+        }
+      }
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $whiteColor;
+        margin-block-end: 0rem;
+      }
+      .inno-idea-status {
+        overflow: hidden;
+        height: 0;
+        @include transition(height, 0.25s, ease);
+        @include flexBox(flex, row, center, space-between);
+        gap: 0.5rem;
+        margin-block-end: 0rem;
+        > div {
+          @include flexBox(flex, row, center, flex-start);
+          gap: 0.25rem;
+          color: $primaryColor;
+          i {
+            font-size: 1.25rem;
+          }
+          span {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      p {
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        height: 0;
+        @include transition(height, 0.25s, ease);
+        font-size: 0.875rem;
+        color: $whiteColor;
+        margin-block-end: 0rem;
+      }
+      .inno-btn {
+        overflow: hidden;
+        height: 0;
+        @include transition(height, 0.25s, ease);
+      }
+    }
+    &:hover {
+      &::before {
+        opacity: 0.875;
+      }
+      .inno-btn-float-like {
+        opacity: 1;
+        bottom: 0;
+      }
+      .inno-idea-user {
+        .inno-idea-user-name {
+          width: auto;
+          opacity: 1;
+          margin-block-start: 0;
+        }
+      }
+      .inno-idea-c {
+        h3 {
+          color: $primaryColor;
+          margin-block: 0.5rem 1rem;
+        }
+        .inno-idea-status {
+          overflow: hidden;
+          height: 3rem;
+          margin-block-end: 0.75rem;
+        }
+        p {
+          height: 3.25rem;
+          margin-block-end: 0.5rem;
+        }
+        .inno-btn {
+          height: 3rem;
+        }
+      }
+    }
+    .inno-idea-tag {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: $darkColor;
+      padding: 0 0.5rem 0 1rem;
+      @include border-radius(0.375rem 0rem 0.375rem 0rem);
+      @include flexBox(flex, row, center, flex-start);
+      gap: 0.5rem;
+      height: 2rem;
+      span,
+      i {
+        font-size: 0.875rem;
+        color: $whiteColor;
+        font-weight: 700;
+      }
+      i {
+        font-size: 1.25rem;
+      }
+      &.inno-idea-tag-rejected {
+        background-color: $dangerColor;
+      }
+      &.inno-idea-tag-approved {
+        background-color: $successColor;
+      }
+      &.inno-idea-tag-reviewing {
+        background-color: $warningColor;
+      }
+      &.inno-idea-tag-best {
+        background-color: $primaryColor;
+      }
+    }
+  }
+}
+
+.inno-challenge-result {
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $primaryColorDark;
+    margin-block-end: 1.5rem;
+  }
+  .inno-idea-i {
+    @include flexBox(flex, row, center, space-between);
+    @include width(100%, 100%, 100%);
+    @include border-radius(0.5rem);
+    @include box-shadow(0, 0, 2rem, 0, rgba($blackColor, 0.25));
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 7rem;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-block-end: 1.5rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, $gradientListThree);
+      @include border-radius(0.5rem);
+      z-index: 0;
+      opacity: 0.5;
+      @include transition(all, 0.3s, ease-in-out);
+    }
+    > * {
+      z-index: 1;
+    }
+    h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $whiteColor;
+      margin-block-end: 0rem;
+    }
+    .inno-idea-user {
+      @include flexBox(flex, row, flex-start, flex-start);
+      margin-inline-start: auto;
+      gap: 1rem;
+      img {
+        @include border-radius(50%);
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        object-position: center;
+      }
+      h5 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: $whiteColor;
+        margin-block-end: 0rem;
+        line-height: 1;
+      }
+      span {
+        font-size: 0.75rem;
+        color: $whiteColor;
+        line-height: 1;
+        font-weight: 300;
+      }
+    }
+
+    &:hover {
+      &::before {
+        opacity: 0.875;
+      }
+      .inno-btn-float-like {
+        opacity: 1;
+        bottom: 0;
+      }
+      .inno-idea-user {
+        .inno-idea-user-name {
+          width: auto;
+          opacity: 1;
+          margin-block-start: 0;
+        }
+      }
+      .inno-idea-c {
+        h3 {
+          color: $primaryColor;
+          margin-block: 0.5rem 1rem;
+        }
+        .inno-idea-status {
+          overflow: hidden;
+          height: 3rem;
+          margin-block-end: 0.75rem;
+        }
+        p {
+          height: 3.25rem;
+          margin-block-end: 0.5rem;
+        }
+        .inno-btn {
+          height: 3rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .inno-challenge-result {
+    .inno-idea-i {
+      height: fit-content;
+      @include flexBox(flex, column, center, center);
+      gap: 3rem;
+      .inno-idea-user {
+        margin-inline-start: 0;
+        gap: 1rem;
+      }
+    }
+  }
+}
+.inno-idea-description {
+  .inno-idea-description-c {
+    img {
+      @include border-radius(0.5rem);
+      width: 100%;
+      height: 35rem;
+      object-fit: cover;
+      object-position: center;
+      margin-block-end: 1.5rem;
+    }
+    .inno-idea-status {
+      @include flexBox(flex, row, center, space-between);
+      margin-block-end: 1.5rem;
+      gap: 1rem;
+      background-color: $lightColorDark;
+      padding: 0.5rem 1rem 0.5rem 0.5rem;
+      @include border-radius(0.5rem);
+      > div {
+        @include flexBox(flex, row, center, flex-start);
+        gap: 0.25rem;
+        color: $darkColor;
+        &.inno-idea-category {
+          margin-inline-end: auto;
+        }
+        i {
+          font-size: 1.5rem;
+        }
+        span {
+          font-size: 0.875rem;
+          color: $darkColor;
+          font-weight: 500;
+        }
+        &.inno-idea-category {
+          span {
+            color: $primaryColor;
+          }
+          i {
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+    .inno-idea-description-p {
+      p {
+        text-align: justify;
+        font-size: 1rem;
+        color: $darkColor;
+        margin-block-end: 1.5rem;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .inno-idea-description {
+    .col-12.col-md-3 {
+      @include flexBox(flex, column, center, center);
+      .inno-card {
+        @include width(100%, 100%, 100%);
+        order: 1;
+        &:has(.inno-tags) {
+          order: 20;
+        }
+      }
+    }
+    .inno-idea-description-c {
+      .inno-idea-status {
+        flex-wrap: wrap;
+        > div {
+          &.inno-idea-category {
+            flex: 1 1 100%;
+          }
+        }
+      }
+    }
+  }
+}

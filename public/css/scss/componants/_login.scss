@@ -1,0 +1,33 @@
+.inno-login-wp {
+  @include flexBox(flex, column, center, center);
+  @include width(100%, 100%, 100%);
+  @include height(100vh, 100vh, 100vh);
+  position: relative;
+  z-index: 900;
+  .inno-login-logo {
+    @include flexBox(flex, column, center, center);
+    gap: 1rem;
+    margin-block-end: 2rem;
+    color: $whiteColor;
+    span {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: inherit;
+    }
+    h3 {
+      color: inherit;
+    }
+  }
+  .inno-login-form {
+    @include flexBox(flex, column, stretch, center);
+    width: 25rem;
+    padding: 0 2rem 2rem 2rem;
+    background-color: $whiteColor;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .inno-btn {
+      max-width: fit-content;
+      align-self: center;
+    }
+  }
+}

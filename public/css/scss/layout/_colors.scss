@@ -1,0 +1,64 @@
+$primaryColor: #00a0e2;
+$primaryColorDark: #0f52ba;
+$secondaryColor: #40e0d0;
+$secondaryColorDark: #008080;
+$darkColor: #142577;
+$blackColor: #000939;
+$grayColor: #a3a8c2;
+$grayColorDark: #8186a4;
+$grayColorLight: #e9e9e9;
+$lightColor: #fafbfc;
+$lightColorDark: #edf2f8;
+$successColor: #18c474;
+$successColorDark: #13a762;
+$warningColor: #ffb507;
+$warningColorDark: #dea81c;
+$dangerColor: #f85d5d;
+$dangerColorDark: #e24848;
+$infoColor: #52e1ff;
+$infoColorDark: #21c1e2;
+$whiteColor: #ffffff;
+
+$gradientListOne: $secondaryColor, $primaryColor, $primaryColorDark, $darkColor;
+$gradientListTwo: $primaryColor, $secondaryColor;
+$gradientListThree: $darkColor, $blackColor;
+$gradientListFour: rgba($darkColor, 0.9), rgba($darkColor, 0);
+$gradientListFive: rgba($primaryColorDark, 0.9), rgba($primaryColorDark, 0.7), rgba($primaryColorDark, 0.5);
+$gradianListSix: $whiteColor, rgba($whiteColor, 0.3);
+
+$colors: (
+  "primary": $primaryColor,
+  "primary-dark": $primaryColorDark,
+  "secondary": $secondaryColor,
+  "secondary-dark": $secondaryColorDark,
+  "dark": $darkColor,
+  "black": $blackColor,
+  "gray": $grayColor,
+  "gray-dark": $grayColorDark,
+  "light": $lightColor,
+  "light-dark": $lightColorDark,
+  "success": $successColor,
+  "success-dark": $successColorDark,
+  "warning": $warningColor,
+  "warning-dark": $warningColorDark,
+  "danger": $dangerColor,
+  "danger-dark": $dangerColorDark,
+  "info": $infoColor,
+  "info-dark": $infoColorDark,
+  "white": $whiteColor,
+);
+
+@each $color, $value in $colors {
+  .#{$color}-color {
+    color: $value;
+  }
+  .#{$color}-border {
+    border-color: $value;
+  }
+  .#{$color}-bg {
+    background-color: $value;
+  }
+  .#{$color}-fill {
+    fill: $value;
+  }
+}

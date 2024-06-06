@@ -1,0 +1,51 @@
+// scss mixins
+// --------------------------------------------------
+@mixin flexBox($display, $direction, $align, $justify) {
+  display: $display;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin reset-all {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  outline: none;
+}
+
+@mixin width($width, $max, $min) {
+  width: $width;
+  max-width: $max;
+  min-width: $min;
+}
+@mixin height($height, $max, $min) {
+  height: $height;
+  max-height: $max;
+  min-height: $min;
+}
+@mixin full {
+  width: 100vw;
+  height: 100dvh;
+  max-width: 100%;
+  max-height: 100%;
+}
+@mixin transition($property, $duration, $type) {
+  transition: $property $duration $type;
+}
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+  box-shadow: $x $y $blur $spread $color;
+}
+@mixin gradient($direction, $gradientList) {
+  background: -webkit-linear-gradient($direction, $gradientList);
+  background: -moz-linear-gradient($direction, $gradientList);
+  background: -o-linear-gradient($direction, $gradientList);
+  background: linear-gradient($direction, $gradientList);
+}
+@mixin resetList {
+  list-style: none;
+  padding: 0;
+}

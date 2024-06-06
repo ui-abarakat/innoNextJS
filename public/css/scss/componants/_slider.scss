@@ -1,0 +1,156 @@
+.inno-slider {
+  padding-block: 6rem 0;
+  margin-block-end: 6rem;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    right: 0;
+    bottom: 5rem;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    @include gradient(to right, $gradientListOne);
+    z-index: 0;
+  }
+  .inno-slider-arrows {
+    @include flexBox(flex, row, center, flex-start);
+    position: relative;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    gap: 1rem;
+    z-index: 1;
+    .inno-slider-prev,
+    .inno-slider-next {
+      @include flexBox(flex, row, center, center);
+      @include width(3rem, 3rem, 3rem);
+      @include height(3rem, 3rem, 3rem);
+      @include border-radius(0.25rem);
+      @include transition(all, 0.5s, ease);
+      background-color: $lightColorDark;
+      color: $grayColor;
+      font-size: 1.5rem;
+
+      cursor: pointer;
+      i {
+        color: inherit;
+      }
+      &:hover {
+        background-color: $grayColor;
+        color: $whiteColor;
+      }
+    }
+  }
+  .inno-slider-i {
+    @include flexBox(flex, row, flex-end, flex-end);
+    position: relative;
+
+    .inno-slider-img {
+      @include width(100%, 100%, 100%);
+      position: relative;
+      overflow: hidden;
+      @include border-radius(0.75rem);
+      @include width(75%, 75%, 75%);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        @include gradient(to left, $gradientListFour);
+      }
+
+      img {
+        @include width(100%, 100%, 100%);
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .inno-slider-c {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      @include width(45%, 45%, 45%);
+      @include flexBox(flex, column, flex-start, center);
+      > span {
+        color: $secondaryColor;
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-block-end: 1rem;
+      }
+      h1 {
+        color: $whiteColor;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-block-end: 1rem;
+        line-height: 1.5;
+      }
+      p {
+        color: $whiteColor;
+        font-size: 1rem;
+        font-weight: 400;
+        margin-block-end: 2rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-align: justify;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .inno-slider {
+    padding-block: 0;
+    &::before {
+      display: none;
+    }
+    .container,
+    .row,
+    .col-12 {
+      @include reset-all;
+    }
+    .inno-slider-i {
+      .inno-slider-img {
+        @include width(100%, 100%, 100%);
+        @include height(100dvh, 100dvh, 70dvh);
+        @include border-radius(0);
+        &::before {
+          opacity: 0.75;
+        }
+        img {
+          @include width(auto, auto, auto);
+          @include height(100%, 100%, 100%);
+        }
+      }
+      .inno-slider-c {
+        @include width(100%, 100%, 100%);
+        @include flexBox(flex, column, center, flex-end);
+        text-align: center;
+        padding: 2rem;
+        padding-block-end: 7.5rem;
+
+        > span {
+          font-size: 1.25rem;
+          color: $whiteColor;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+      }
+    }
+    .inno-slider-arrows {
+      bottom: 2rem;
+      gap: 0.5rem;
+      left: 0;
+      @include flexBox(flex, row, center, center);
+      @include width(100%, 100%, 100%);
+    }
+  }
+}

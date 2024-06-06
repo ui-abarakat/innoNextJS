@@ -1,0 +1,191 @@
+@import "/public/css/scss/layout/mixin";
+@import "/public/css/scss/layout/colors";
+@import "/public/css/scss/layout/theme";
+@import "/public/css/scss/layout/forms";
+
+.inno-btns-wp {
+  @include flexBox(flex, row, center, flex-end);
+  gap: 1.5rem;
+  margin: 0;
+  .inno-btn:not(.w-100) {
+    width: fit-content;
+    flex: 0 0 fit-content;
+  }
+}
+
+.inno-btn {
+  @include flexBox(inline-flex, row, center, center);
+  @include border-radius(0.25rem);
+  gap: 0.75rem;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 3rem;
+  cursor: pointer;
+  @include transition(all, 0.3s, ease-out);
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &.inno-btn-primary {
+    background-color: $primaryColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $primaryColorDark;
+    }
+  }
+
+  &.inno-btn-primary-dark {
+    background-color: $primaryColorDark;
+    color: $whiteColor;
+    &:hover {
+      background-color: $primaryColor;
+    }
+  }
+
+  &.inno-btn-secondary {
+    background-color: $secondaryColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $secondaryColorDark;
+    }
+  }
+  &.inno-btn-dark {
+    background-color: $darkColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $blackColor;
+    }
+  }
+  &.inno-btn-gray {
+    background-color: $grayColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $grayColorDark;
+    }
+  }
+  &.inno-btn-light {
+    background-color: $lightColor;
+    color: $grayColorDark;
+    &:hover {
+      background-color: $grayColorDark;
+      color: $whiteColor;
+    }
+    &:has(i) {
+      color: $primaryColorDark;
+      background-color: rgba($whiteColor, 0.625);
+    }
+  }
+  &.inno-btn-success {
+    background-color: $successColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $successColorDark;
+    }
+  }
+  &.inno-btn-warning {
+    background-color: $warningColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $warningColorDark;
+    }
+  }
+  &.inno-btn-danger {
+    background-color: $dangerColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $dangerColorDark;
+    }
+  }
+  &.inno-btn-info {
+    background-color: $infoColor;
+    color: $whiteColor;
+    &:hover {
+      background-color: $infoColorDark;
+    }
+  }
+  &:has(i) {
+    padding: 0;
+    min-width: 3rem;
+    i {
+      font-size: 1.5rem;
+    }
+  }
+  &.inno-btn-sm {
+    padding: 0 1rem;
+    height: 2.5rem;
+    font-size: 0.875rem;
+    &:has(i) {
+      min-width: 2.5rem;
+      padding: 0;
+    }
+  }
+  &.inno-btn-xs {
+    padding: 0 0.5rem;
+    height: 1.5rem;
+    &:has(i) {
+      min-width: 1.5rem;
+      padding: 0;
+      i {
+        font-size: 0.875rem;
+      }
+    }
+  }
+  &.inno-btn-lg {
+    padding: 0 2.5rem;
+    height: 3.5rem;
+    &:has(i) {
+      min-width: 3.5rem;
+      padding: 0;
+    }
+  }
+
+  &.inno-btn-like {
+    @include flexBox(flex, row, center, center);
+    @include transition(all, 0.3s, ease-out);
+    @include width(2.5rem, 2.5rem, 2.5rem);
+    @include height(2.5rem, 2.5rem, 2.5rem);
+    background-color: $primaryColor;
+    padding: 0;
+    svg {
+      width: 1.25rem;
+    }
+    &:hover {
+      background-color: $primaryColorDark;
+    }
+    &.inno-active {
+      background-color: $secondaryColor;
+    }
+
+    &.inno-btn-float-like {
+      @include width(3rem, 3rem, 3rem);
+      @include height(3rem, 3rem, 3rem);
+      @include border-radius(50%);
+      position: absolute;
+      transform: translateY(50%);
+
+      bottom: 0;
+      left: 1.5rem;
+    }
+  }
+}
+
+.inno-all-btn {
+  @include flexBox(flex, row, center, center);
+  margin-block: 2rem;
+  .inno-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $whiteColor;
+    background-color: $primaryColorDark;
+    @include border-radius(0.5rem);
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: $primaryColor;
+    }
+  }
+  .inno-btn-active {
+    background-color: $primaryColor;
+  }
+}

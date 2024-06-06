@@ -1,0 +1,27 @@
+@import "/public/css/scss/layout/mixin";
+@import "/public/css/scss/layout/colors";
+@import "/public/css/scss/layout/theme";
+@import "/public/css/scss/layout/forms";
+
+.inno-slider {
+  .swiper-button-prev {
+    @include flexBox(flex, row, center, center);
+    @include width(3rem, 3rem, 3rem);
+    @include height(3rem, 3rem, 3rem);
+    @include border-radius(0.25rem);
+    @include transition(all, 0.5s, ease);
+    background-color: $lightColorDark;
+    color: $grayColor;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    i {
+      color: inherit;
+    }
+    &:hover {
+      background-color: $grayColor;
+      color: $whiteColor;
+    }
+  }
+}

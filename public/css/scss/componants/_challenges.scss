@@ -1,0 +1,371 @@
+.inno-challenges-wp {
+  padding-block-end: 4rem;
+  min-height: 100vh;
+
+  .inno-challenges {
+    background-color: $lightColorDark;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-block-end: 1.5rem;
+    .inno-challenge-img {
+      img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+      }
+    }
+    .progress {
+      height: 0.25rem;
+      border-radius: 0;
+      background-color: transparent;
+      overflow: visible;
+      .progress-bar {
+        position: relative;
+        overflow: visible;
+        span {
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          transform: translate(100%, -50%);
+          color: $whiteColor;
+          font-size: 0.75rem;
+          font-weight: 500;
+          background-color: inherit;
+          padding: 0rem 1rem;
+          @include border-radius(5rem);
+          @include flexBox(flex, row, center, center);
+          height: 1.5rem;
+        }
+        &.inno-not-started {
+          span {
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+    .inno-challenge-c {
+      padding: 1rem;
+      .inno-challenge-top {
+        margin-block: 1rem;
+        @include flexBox(flex, row, center, space-between);
+        .inno-challenge-dep,
+        .inno-challenge-date {
+          @include flexBox(flex, row, center, flex-start);
+          gap: 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: $grayColor;
+          i {
+            font-size: 1.25rem;
+            color: $primaryColorDark;
+          }
+        }
+      }
+      .inno-challenge-title {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: $primaryColorDark;
+        margin-block-end: 1rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        line-height: 2.5rem;
+        min-height: 5rem;
+        text-align: justify;
+      }
+      .inno-challenge-description {
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: $grayColor;
+        margin-block-end: 1rem;
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.inno-challenge-details-header {
+  padding-block: 5rem 0;
+  position: relative;
+  background-size: cover;
+  * {
+    z-index: 1;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: $primaryColorDark;
+    @include gradient(to left, $gradientListFive);
+    z-index: 0;
+  }
+  .inno-breadcramp {
+    ul {
+      @include resetList;
+      @include flexBox(flex, row, center, flex-start);
+      gap: 0.5rem;
+      li {
+        @include flexBox(flex, row, center, flex-start);
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: $whiteColor;
+        &:not(:last-child)::after {
+          content: "\e910 \e910 \e910";
+          font-family: "inicon" !important;
+          letter-spacing: -7.5px;
+          speak: never;
+          font-style: normal;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          margin-inline-start: 1rem;
+          font-size: 0.75rem;
+          @include gradient(to right, $gradianListSix);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          padding-inline-start: 0.25rem;
+        }
+        a {
+          color: $whiteColor;
+          text-decoration: none;
+          &:hover {
+            color: $secondaryColor;
+          }
+        }
+      }
+    }
+  }
+  .inno-challenge-h {
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      color: $whiteColor;
+      margin-block: 1rem 3rem;
+    }
+  }
+  .inno-challenge-details-img {
+    img {
+      width: 100%;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 0.5rem;
+    }
+  }
+  .col-12 {
+    @include flexBox(flex, column, flex-start, center);
+  }
+  .inno-challenge-btns {
+    @include flexBox(flex, row, center, center);
+    gap: 1rem;
+    padding-block: 1.5rem;
+    background-color: rgba($darkColor, 0.5);
+    margin-block-start: 5rem;
+    position: relative;
+    .inno-btn {
+      gap: 0.25rem;
+      &.inno-active {
+        background-color: $secondaryColor;
+        color: $whiteColor;
+        cursor: not-allowed;
+      }
+      span {
+        font-size: 0.625rem;
+        font-weight: 600;
+        color: $whiteColor;
+        background-color: $grayColorDark;
+        line-height: 1;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        position: relative;
+        top: -0.5rem;
+        &::after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-top: 0.25rem solid $grayColorDark;
+          border-left: 0.5rem solid transparent;
+          position: absolute;
+          bottom: -0.25rem;
+          right: 0.25rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  section.inno-challenge-details-header {
+    padding-block-start: 7rem;
+    .col-md-7 {
+      order: 1;
+    }
+    .col-md-5 {
+      order: 2;
+    }
+    .inno-breadcramp {
+      @include width(100%, 100%, 100%);
+      margin-block-start: 3rem;
+      ul {
+        justify-content: center;
+      }
+    }
+    .inno-challenge-h {
+      @include width(100%, 100%, 100%);
+      text-align: center;
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
+    .inno-challenge-btns {
+      flex-wrap: wrap;
+      .inno-btn {
+        flex: 0 0 calc(50% - 2rem);
+      }
+    }
+  }
+}
+.inno-challenge-about {
+  margin-block: 3rem;
+  padding-block: 0rem 1.5rem;
+  .inno-challenge-journey-wp {
+    padding-block-end: 2rem;
+    margin-block-end: 5rem;
+    border-block-end: 1px solid $lightColorDark;
+    @include flexBox(flex, row, flex-start, center);
+    position: relative;
+    &::before,
+    &::after {
+      @include border-radius(50%);
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      background-color: rgba($grayColor, 0.25);
+      z-index: -1;
+      left: -1rem;
+      top: 1.5rem;
+      transform: translateY(-50%);
+    }
+    &::after {
+      left: auto;
+      right: -1rem;
+      background-color: $primaryColor;
+    }
+    .inno-challenge-journey-i {
+      @include flexBox(flex, column, center, center);
+      flex: 1;
+      padding-inline: 3rem;
+      color: $grayColor;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        height: 2px;
+        background-color: rgba($grayColor, 0.25);
+        z-index: -1;
+        left: 0;
+        right: 0;
+        top: 1.5rem;
+        transform: translateY(-50%);
+      }
+      .inno-challenge-journey-icon {
+        position: relative;
+        background-color: $whiteColor;
+        width: 3rem;
+        height: 3rem;
+        @include border-radius(50%);
+        @include flexBox(flex, row, center, center);
+        margin-block-end: 1.5rem;
+        i {
+          @include flexBox(flex, row, center, center);
+          @include border-radius(50%);
+          width: 3rem;
+          height: 3rem;
+          font-size: 1.5rem;
+          background-color: rgba($grayColor, 0.25);
+        }
+        &::after,
+        &::before {
+          content: "";
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          background-color: $grayColorDark;
+          z-index: 1;
+          @include border-radius(50%);
+          left: -2px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &::after {
+          left: auto;
+          right: -2px;
+        }
+      }
+      p {
+        font-weight: 700;
+        color: $grayColor;
+        margin-block-end: 0;
+        font-size: 0.875rem;
+        line-height: 1;
+      }
+      span {
+        font-weight: 300;
+        font-size: 0.75rem;
+      }
+      &.inno-current,
+      &.inno-completed {
+        &::after,
+        &::before {
+          background-color: $primaryColor;
+        }
+
+        .inno-challenge-journey-icon {
+          i {
+            background-color: rgba($primaryColor, 0.25);
+            color: $primaryColor;
+          }
+          &::after,
+          &::before {
+            background-color: $primaryColor;
+          }
+        }
+        p {
+          color: $primaryColorDark;
+        }
+        span {
+          color: $darkColor;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .inno-challenge-about {
+    .inno-challenge-journey-wp {
+      display: none;
+    }
+  }
+}
+.inno-challenge-sections {
+  position: relative;
+  overflow: hidden;
+  section {
+    min-height: 80vh;
+    margin-block: 3rem;
+    @include transition(all, 0.5s, ease);
+    &:not(.inno-active) {
+      transform: translateX(-100%);
+      position: absolute;
+      opacity: 0;
+    }
+  }
+}

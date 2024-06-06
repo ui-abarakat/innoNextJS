@@ -1,0 +1,44 @@
+@import "/public/css/scss/layout/mixin";
+@import "/public/css/scss/layout/colors";
+@import "/public/css/scss/layout/theme";
+@import "/public/css/scss/layout/forms";
+
+footer.inno-footer {
+  background-color: $primaryColorDark;
+  padding-block: 1.25rem;
+  color: $whiteColor;
+  a {
+    color: $secondaryColor;
+    &:hover {
+      color: $warningColor;
+    }
+  }
+  nav {
+    ul {
+      @include flexBox(flex, row, center, flex-end);
+      @include resetList;
+      margin: 0;
+      li {
+        &:not(:last-child):after {
+          content: "|";
+          margin-inline: 2rem;
+          font-weight: 300;
+        }
+        a {
+          color: $whiteColor;
+          &:hover {
+            color: $warningColor;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer.inno-footer {
+    nav {
+      display: none;
+    }
+  }
+}

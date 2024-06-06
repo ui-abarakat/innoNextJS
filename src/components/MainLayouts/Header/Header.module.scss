@@ -1,0 +1,202 @@
+@import "/public/css/scss/layout/mixin";
+@import "/public/css/scss/layout/colors";
+@import "/public/css/scss/layout/theme";
+@import "/public/css/scss/layout/forms";
+.inno-header {
+  position: relative;
+  z-index: 100;
+
+  @include gradient(to right, $gradientListOne);
+  .inno-header-c {
+    @include flexBox(flex, row, center, space-between);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba($whiteColor, 0.4);
+
+    a {
+      img {
+        height: 3rem;
+        width: auto;
+      }
+    }
+    > nav {
+      .inno-menu-btn {
+        border-radius: 0.25rem;
+        background-color: rgba($whiteColor, 0.2);
+        @include flexBox(flex, row, center, center);
+        height: 3rem;
+        color: $whiteColor;
+        aspect-ratio: 1;
+        display: none;
+        i {
+          font-size: 2rem;
+        }
+      }
+
+      > ul {
+        margin: 0;
+        @include flexBox(flex, row, center, space-between);
+        gap: 1.5rem;
+        a.inno-menu-x {
+          display: none;
+          font-size: 2rem;
+        }
+        > li {
+          list-style: none;
+          &:has(.inno-nav-drop) {
+            position: relative;
+          }
+          button {
+            &.inno-active {
+              background-color: $primaryColorDark;
+              color: $whiteColor;
+              border-bottom-left-radius: 0;
+              border-bottom-right-radius: 0;
+              @include transition(all, 0.6s, ease-out);
+            }
+          }
+          &:not(:has(.inno-nav-drop)) {
+            a:not(.inno-btn) {
+              color: $whiteColor;
+              font-size: 1rem;
+              text-decoration: none;
+              font-weight: 500;
+              i {
+                font-size: 1.5rem;
+              }
+              &:hover {
+                color: $darkColor;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.inno-inner-header {
+      border-bottom: 0;
+    }
+  }
+  &.inno-sticky-perp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background-color: $darkColor;
+    @include transition(all, 0.5s, ease-in-out);
+    @include box-shadow(0, 0, 3rem, 2rem, rgba($darkColor, 0.15));
+    background-color: $primaryColorDark;
+    .inno-header-c {
+      border-bottom: 0;
+      padding: 1rem 0;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .inno-header {
+    position: fixed;
+    background-color: $darkColor;
+    .inno-header-c {
+      border: 0;
+      padding-inline: 1rem;
+      > nav {
+        .inno-menu-btn {
+          display: flex;
+        }
+        > ul {
+          @include flexBox(flex, column, center, center);
+          @include transition(all, 0.3s, ease-out);
+          @include width(100%, 100%, 100%);
+          @include height(100vh, 100vh, 100vh);
+          inset: 0 -100% 0 0;
+          position: fixed;
+          background-color: rgba($darkColor, 0.9);
+          gap: 2rem;
+          &.inno-menu-active {
+            inset: 0 0 0 0;
+          }
+
+          li {
+            a:not(.inno-btn) {
+              font-size: 1.5rem;
+              font-weight: 400;
+            }
+          }
+          a.inno-menu-x {
+            @include flexBox(flex, row, center, center);
+            background-color: rgba($warningColor, 0.25);
+            border-radius: 5rem;
+            width: 4rem;
+            height: 4rem;
+            margin-block-end: 3rem;
+            svg {
+              fill: $warningColor;
+            }
+          }
+          .inno-menu-btn {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+.inno-nav-drop {
+  position: absolute;
+  background-color: $whiteColor;
+  @include border-radius(0.25rem);
+  @include box-shadow(0, 0, 1rem, 0.25rem, rgba($darkColor, 0.25));
+  @include transition(all, 0.5s, ease-in-out);
+  top: 10rem;
+  opacity: 0;
+  visibility: hidden;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15rem;
+  overflow: hidden;
+  .inno-user-card {
+    padding: 1.5rem;
+    background-color: rgba($primaryColor, 0.3);
+    .inno-user-name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $primaryColor;
+    }
+    .inno-user-points {
+      &::before {
+        background-color: rgba($blackColor, 0.1);
+      }
+    }
+    img {
+      height: 5rem;
+      width: 5rem;
+    }
+    nav {
+      ul {
+        padding: 0 1rem;
+        li {
+          & + li {
+            border-block-start: 1px solid rgba($blackColor, 0.1);
+          }
+        }
+      }
+    }
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 1.25rem solid transparent;
+    border-right: 1.25rem solid transparent;
+
+    border-top: 1.5rem solid $primaryColorDark;
+  }
+  &.inno-active {
+    opacity: 1;
+    visibility: visible;
+    top: 2.5rem;
+  }
+}
