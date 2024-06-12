@@ -304,9 +304,99 @@
 
 /*
 ------------------------------------------------
-2.1 Fonts Variable
+2.1 Perloader
 ------------------------------------------------
 */
+/*--------------------------------------------------------------
+Preloader
+----------------------------------------------------------------*/
+.mctm-preloader-wp {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+.mctm-preloader-wp .mctm-preloader-bg {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.mctm-preloader-wp .mctm-preloader-bg::after, .mctm-preloader-wp .mctm-preloader-bg::before {
+  width: 50vw;
+  height: 100vh;
+  background-color: #00a0e2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.mctm-preloader-wp .mctm-preloader-bg::before {
+  left: auto;
+  right: 0;
+}
+.mctm-preloader-wp .mctm-preloader-bg .mctm-preloader-in {
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 6rem;
+  height: 6rem;
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  border-width: 0.188rem;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: #fafbfc;
+}
+.mctm-preloader-wp .mctm-preloader-bg .mctm-preloader-in:after {
+  content: "";
+  border-width: 0.188rem;
+  border-style: solid;
+  border-color: transparent;
+  border-top-color: #00a0e2;
+  border-radius: 50%;
+  position: absolute;
+  width: calc(100% + 0.375rem);
+  height: calc(100% + 0.375rem);
+  left: 50%;
+  top: 50%;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: -3rem;
+  margin-top: -3rem;
+}
+.mctm-preloader-wp .mctm-preloader-bg .mctm-preloader-in svg {
+  height: 4rem;
+}
+.mctm-preloader-wp .mctm-preloader-bg .mctm-preloader-in svg path {
+  fill: #00a0e2;
+}
+.mctm-preloader-wp.mctm-loaded .mctm-preloader-bg .mctm-preloader-in {
+  opacity: 0;
+}
+.mctm-preloader-wp.mctm-loaded .mctm-preloader-bg::after, .mctm-preloader-wp.mctm-loaded .mctm-preloader-bg::before {
+  width: 0vw;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /*
 ------------------------------------------------
 2.1 Font Weight

@@ -1,4 +1,4 @@
-import { InstallBootstrap, Header, Footer, Preloader } from "../components/MainLayouts";
+import { Header, Footer } from "../components/MainLayouts";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "/public/css/style.scss";
@@ -57,8 +57,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ar" className="inno-html">
       <body id="innoBody" dir="rtl" className={InnoFont.className}>
-        <InstallBootstrap />
-        <Preloader />
         <Header />
         {children}
         <Footer />

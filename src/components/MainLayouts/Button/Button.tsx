@@ -5,17 +5,17 @@ interface ButtonProps {
   variant?: "primary" | "primary-dark" | "secondary" | "secondary-dark" | "success" | "danger" | "warning" | "info" | "light" | "dark" | "link";
   children: React.ReactNode;
   onClick?: () => void;
-  btnType?: "button" | "submit" | "reset";
+  buttonType?: "button" | "submit" | "reset";
 }
 
-export default function Button({ size = "md", variant = "primary", children, onClick, btnType = "button" }: ButtonProps) {
-  const handleClick = () => {
-    console.log("Button clicked!");
-  };
+const Button: React.FC<ButtonProps> = ({ size = "md", variant = "primary", children, onClick, buttonType = "button" }) => {
+  const classNames = `${Style["inno-btn"]} ${Style["inno-btn-" + variant]} ${Style["inno-btn-" + size]}`;
 
   return (
-    <button type={btnType} onClick={onClick} className={`btn btn-${variant} btn-${size} ${Style["inno-btn"]}`}>
+    <button type={buttonType} className={classNames} onClick={onClick}>
       {children}
     </button>
   );
-}
+};
+
+export default Button;
